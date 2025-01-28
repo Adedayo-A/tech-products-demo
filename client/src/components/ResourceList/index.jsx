@@ -13,7 +13,7 @@ export default function ResourceList({ publish, resources }) {
 			{resources.map(({ description, id, title, topic_name, url }) => (
 				<li key={id}>
 					<div>
-						<h3>{title}</h3>
+						<h3> {title}</h3>
 						{topic_name && <span className="topic">{topic_name}</span>}
 					</div>
 					{description && <p className="resource-description">{description}</p>}

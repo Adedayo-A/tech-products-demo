@@ -27,11 +27,15 @@ router
 			}).unknown(),
 		}),
 		asyncHandler(async (req, res) => {
-			const { draft, page, perPage } = req.query;
+			const { draft, page, perPage, topics } = req.query;
 			if (draft && !req.superuser && !req.user?.is_admin) {
 				return res.sendStatus(403);
 			}
-			res.send(await service.getAll({ draft }, { page, perPage }));
+			const topicsArray = topics ? topics.split(",") : [];
+
+			res.send(
+				await service.getAll({ draft, topics: topicsArray }, { page, perPage })
+			);
 		})
 	)
 	.post(

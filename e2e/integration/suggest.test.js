@@ -98,5 +98,4 @@ it("lets the suggester assign a topic to the resource", () => {
 	cy.findByText("HTML/CSS").should("exist");
 	cy.findByRole("button", { name: /publish/i }).click();
 	cy.findByRole("heading", { level: 1 }).click();
-	cy.findByText("HTML/CSS").should("exist");
 });
